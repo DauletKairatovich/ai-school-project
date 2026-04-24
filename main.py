@@ -14,7 +14,11 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(
+    request=request, 
+    name="index.html", 
+    context={}  # Если вы передавали дополнительные данные, оставьте их тут
+)
 
 @app.post("/check")
 async def check_homework(task_file: UploadFile = File(...), student_file: UploadFile = File(...)):
