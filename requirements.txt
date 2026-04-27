@@ -5,3 +5,8 @@ python-dotenv
 Pillow
 jinja2
 python-multipart
+pandas
+numpy
+seaborn
+scikit-learn
+matplotlib
