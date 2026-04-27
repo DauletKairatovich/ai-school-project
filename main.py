@@ -1,11 +1,14 @@
 import os
 import io
+from typing import List
 from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
 from dotenv import load_dotenv
 from google import genai
 from PIL import Image
+from ml_model import analyze_grades as ml_analyze
 
 load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
